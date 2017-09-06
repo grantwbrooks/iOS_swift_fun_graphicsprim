@@ -1,7 +1,6 @@
 //: Playground - noun: a place where people can play
 
 import UIKit
-import Foundation
 
 struct Point {
     var x: Double
@@ -15,18 +14,21 @@ var point3 = Point(x: 6, y: 9)
 struct Line {
     var start: Point
     var end: Point
-    func lengthline(start: Point, end: Point) -> Double {
+    func lengthline() -> Double {
         return sqrt((start.x - end.x)*(start.x - end.x) + (start.x - end.x)*(start.x - end.x))
     }
 }
 
 var line1 = Line(start: point1, end: point2)
-print(line1.lengthline(start: line1.start, end: line1.end))
+print(line1.lengthline())
 
+
+//now try for triangle
 struct Triangle {
     var points = [Point]()
-    func area(a: Point, b: Point, c: Point) -> Double {
-        return 1/2 * (abs((a.x-c.x)(b.y-a.y)-(a.x-b.x)(c.y-a.y)))
+    func area() -> Double {
+        let area1 = ((points[0].x-points[2].x)*(points[1].y-points[0].y)-(points[0].x-points[1].x)*(points[2].y-points[0].y))
+        return 1/2 * abs(area1)
     }
 }
 
@@ -36,6 +38,6 @@ triangle1.points.append(point2)
 triangle1.points.append(point3)
 print(triangle1.points)
 
-print(triangle1.area(a: triangle1.points[0], b: triangle1.points[1], c: triangle1.points[2]))
+print(triangle1.area())
 
 
